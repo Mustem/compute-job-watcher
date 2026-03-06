@@ -7,8 +7,9 @@ A small Bash utility to inspect compute or node job logs and summarize common ev
 - Reads a target log file
 - Counts common log events
 - Uses case-insensitive matching
+- Shows a quick watcher status
 - Shows the last 20 lines
-- Gives a quick summary for operator workflows
+- Gives a simple summary for operator workflows
 
 ## Structure
 
@@ -35,5 +36,5 @@ bash scripts/job_watcher.sh examples/sample-log.txt
 ## Roadmap
 
 - Add output export
-- Add warning summary mode
 - Add custom keyword support
+- Add summary-only mode

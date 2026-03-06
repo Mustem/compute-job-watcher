@@ -31,6 +31,14 @@ echo "- connected: $CONNECTED_COUNT"
 echo "- failed: $FAILED_COUNT"
 echo
 
+echo "Watcher Status:"
+if [ "$ERROR_COUNT" -gt 0 ] || [ "$FAILED_COUNT" -gt 0 ] || [ "$TIMEOUT_COUNT" -gt 0 ]; then
+  echo "Warning: log contains failure-related events."
+else
+  echo "OK: no failure-related events detected."
+fi
+echo
+
 echo "Last 20 lines:"
 tail -n 20 "$LOG_FILE"
 echo
