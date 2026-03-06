@@ -17,11 +17,11 @@ echo
 echo "Log file: $LOG_FILE"
 echo
 
-ERROR_COUNT=$(grep -c "error" "$LOG_FILE")
-TIMEOUT_COUNT=$(grep -c "timeout" "$LOG_FILE")
-SUCCESS_COUNT=$(grep -c "success" "$LOG_FILE")
-CONNECTED_COUNT=$(grep -c "connected" "$LOG_FILE")
-FAILED_COUNT=$(grep -c "failed" "$LOG_FILE")
+ERROR_COUNT=$(grep -i -c "error" "$LOG_FILE")
+TIMEOUT_COUNT=$(grep -i -c "timeout" "$LOG_FILE")
+SUCCESS_COUNT=$(grep -i -c "success" "$LOG_FILE")
+CONNECTED_COUNT=$(grep -i -c "connected" "$LOG_FILE")
+FAILED_COUNT=$(grep -i -c "failed" "$LOG_FILE")
 
 echo "Summary:"
 echo "- error: $ERROR_COUNT"
