@@ -1,0 +1,10 @@
+=== Compute Job Watcher ===
+
+Log file: examples/sample-log.txt
+
+Summary:
+- error: 1
+- timeout: 1
+- success: 4
+- connected: 2
+- failed: 2
