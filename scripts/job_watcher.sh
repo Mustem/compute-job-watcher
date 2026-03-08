@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 LOG_FILE="$1"
+CUSTOM_KEYWORD="$2"
 
 if [ -z "$LOG_FILE" ]; then
-  echo "Usage: bash scripts/job_watcher.sh <log_file>"
+  echo "Usage: bash scripts/job_watcher.sh <log_file> [custom_keyword]"
   exit 1
 fi
 
@@ -29,8 +30,13 @@ echo "- timeout: $TIMEOUT_COUNT"
 echo "- success: $SUCCESS_COUNT"
 echo "- connected: $CONNECTED_COUNT"
 echo "- failed: $FAILED_COUNT"
-echo
 
+if [ -n "$CUSTOM_KEYWORD" ]; then
+  CUSTOM_COUNT=$(grep -i -c "$CUSTOM_KEYWORD" "$LOG_FILE")
+  echo "- $CUSTOM_KEYWORD: $CUSTOM_COUNT"
+fi
+
+echo
 echo "Watcher Status:"
 if [ "$ERROR_COUNT" -gt 0 ] || [ "$FAILED_COUNT" -gt 0 ] || [ "$TIMEOUT_COUNT" -gt 0 ]; then
   echo "Warning: log contains failure-related events."
